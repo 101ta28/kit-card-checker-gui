@@ -39,7 +39,7 @@ CSVファイルの保存形式は`UTF-8 with BOM`です。
 
 ## 環境構築
 
-### Windows(exeファイル)を実行する場合
+### Windows(exeファイル)で実行する場合
 
 1. NFCリーダーのドライバーをダウンロード
 
@@ -63,6 +63,6 @@ CSVファイルの保存形式は`UTF-8 with BOM`です。
 2. `pip install -r requirements.txt`を実行してください。
 3. `python record-csv.py`または、`python ref-csv.py`を実行してください。
 
-### Windows(exeファイル)を実行する場合
+### Windows(exeファイル)で実行する場合
 1. exeファイルをダウンロードしてください。
 2. ダウンロードしたexeファイルを実行してください。
