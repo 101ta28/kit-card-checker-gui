@@ -59,12 +59,8 @@ class MainWindow(tk.Tk):
         self.title("KIT学生証・職員証スキャナ")
         self.geometry("650x300")
         self.custom_font = tkFont.Font(family="Helvetica", size=10)
-        self.bold_font = tkFont.Font(
-            family="Helvetica", size=13, weight="bold"
-        )
-        self.bigger_bold_font = tkFont.Font(
-            family="Helvetica", size=15, weight="bold"
-        )
+        self.bold_font = tkFont.Font(family="Helvetica", size=13, weight="bold")
+        self.bigger_bold_font = tkFont.Font(family="Helvetica", size=15, weight="bold")
         self.init_ui()
         self.set_default_save_path()
         self.nfc_queue = queue.Queue()
@@ -84,17 +80,13 @@ class MainWindow(tk.Tk):
 
     def init_ui(self):
         # 上部のウィジェットの設定
-        self.scan_time_label = tk.Label(
-            self, text="スキャン時間:", font=self.bold_font
-        )
+        self.scan_time_label = tk.Label(self, text="スキャン時間:", font=self.bold_font)
         self.scan_time_label.pack(pady=(10, 0))
 
         self.id_label = tk.Label(self, text="ID:", font=self.bigger_bold_font)
         self.id_label.pack(pady=(10, 0))
 
-        self.ready_label = tk.Label(
-            self, text="準備完了", font=self.bigger_bold_font
-        )
+        self.ready_label = tk.Label(self, text="準備完了", font=self.bigger_bold_font)
         self.ready_label.pack(pady=(10, 0))
 
         # 下部のウィジェットの設定
@@ -110,7 +102,15 @@ class MainWindow(tk.Tk):
             font=self.custom_font,
         )
         self.save_button.pack(side=tk.BOTTOM, pady=(10, 10))
-        self.save_button.pack()
+
+        self.prevent_duplicate_check = tk.BooleanVar()
+        self.prevent_duplicate_checkbox = tk.Checkbutton(
+            self,
+            text="重複スキャンを防止",
+            variable=self.prevent_duplicate_check,
+            font=self.custom_font,
+        )
+        self.prevent_duplicate_checkbox.pack(side=tk.BOTTOM, pady=(0, 10))
 
     def set_default_save_path(self):
         default_save_directory = os.getcwd()
@@ -136,27 +136,19 @@ class MainWindow(tk.Tk):
             self.file_path_label.config(text=f"ファイルパス: {self.file_path}")
 
     def save_to_csv(self, tag_id, scan_time):
-        if (
-            not os.path.isfile(self.file_path)
-            or os.path.getsize(self.file_path) == 0
-        ):
-            with open(
-                self.file_path, "w", newline="", encoding="utf-8-sig"
-            ) as file:
+        if not os.path.isfile(self.file_path) or os.path.getsize(self.file_path) == 0:
+            with open(self.file_path, "w", newline="", encoding="utf-8-sig") as file:
                 writer = csv.writer(file)
                 writer.writerow(["id", "scan_datetime"])
 
-        with open(
-            self.file_path, "r", newline="", encoding="utf-8-sig"
-        ) as file:
-            reader = csv.reader(file)
-            if any(row[0] == tag_id for row in reader):
-                self.ready_label.config(text="既にスキャンされています")
-                return
+        if self.prevent_duplicate_check.get():
+            with open(self.file_path, "r", newline="", encoding="utf-8-sig") as file:
+                reader = csv.reader(file)
+                if any(row[0] == tag_id for row in reader):
+                    self.ready_label.config(text="既にスキャンされています")
+                    return
 
-        with open(
-            self.file_path, "a", newline="", encoding="utf-8-sig"
-        ) as file:
+        with open(self.file_path, "a", newline="", encoding="utf-8-sig") as file:
             writer = csv.writer(file)
             writer.writerow([tag_id, scan_time.strftime("%Y-%m-%d %H:%M:%S")])
             self.ready_label.config(text="スキャン完了")
