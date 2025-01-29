@@ -59,10 +59,18 @@ CSVファイルの保存形式は`UTF-8 with BOM`です。
 
 ### Pythonで実行する場合
 
+#### uv を用いる場合
+
+1. `uv sync` を実行してください。
+2. `uv run record-csv.py`または、`uv run ref-csv.py`を実行してください。
+
+#### uv以外を用いる場合
+
 1. Python3.8以上をインストールしてください。
 2. `pip install -r requirements.txt`を実行してください。
 3. `python record-csv.py`または、`python ref-csv.py`を実行してください。
 
-### Windows(exeファイル)で実行する場合
+### Windows(exeファイル)を実行する場合
+
 1. exeファイルをダウンロードしてください。
 2. ダウンロードしたexeファイルを実行してください。
