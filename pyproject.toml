@@ -1,0 +1,13 @@
+[project]
+name = "kit-card-checker-gui"
+version = "1.1.0"
+description = "金沢工業大学の学生や教職員の番号を保存・参照するGUIプログラムです。"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "libusb1==3.1.0",
+    "ndeflib==0.3.3",
+    "nfcpy==1.0.4",
+    "pydes==2.0.1",
+    "pyserial==3.5",
+]

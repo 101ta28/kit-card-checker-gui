@@ -1,0 +1,73 @@
+version = 1
+requires-python = ">=3.12"
+
+[[package]]
+name = "kit-card-checker-gui"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "libusb1" },
+    { name = "ndeflib" },
+    { name = "nfcpy" },
+    { name = "pydes" },
+    { name = "pyserial" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "libusb1", specifier = "==3.1.0" },
+    { name = "ndeflib", specifier = "==0.3.3" },
+    { name = "nfcpy", specifier = "==1.0.4" },
+    { name = "pydes", specifier = "==2.0.1" },
+    { name = "pyserial", specifier = "==3.5" },
+]
+
+[[package]]
+name = "libusb1"
+version = "3.1.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/af/19/53ecbfb96d6832f2272d13b84658c360802fcfff7c0c497ab8f6bf15ac40/libusb1-3.1.0.tar.gz", hash = "sha256:4ee9b0a55f8bd0b3ea7017ae919a6c1f439af742c4a4b04543c5fd7af89b828c", size = 83013 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/85/5c/9169aea7690df382b677d9f725accc3ec864849c5ab49991e3823a942392/libusb1-3.1.0-py3-none-any.whl", hash = "sha256:9d9f16e2c199cab91f48ead585d3f5ec7e8e4be428a25ddfed22abf786fa9b3a", size = 62368 },
+    { url = "https://files.pythonhosted.org/packages/2f/84/d851eb09565ff72b0dfbb988f4e1c79d3746c16eda5bb8e81ec6ce3bb16e/libusb1-3.1.0-py3-none-win32.whl", hash = "sha256:bc7874302565721f443a27d8182fcc7152e5b560523f12f1377b130f473e4a0c", size = 127838 },
+    { url = "https://files.pythonhosted.org/packages/02/a5/620d383ec17051f42a907f21517eb498ddecd45b2b81e46cc42e6ec4038e/libusb1-3.1.0-py3-none-win_amd64.whl", hash = "sha256:77a06ecfb3d002d7c2ce369e28d0138b292fe8db8a3d102b73fda231a716dd35", size = 140380 },
+]
+
+[[package]]
+name = "ndeflib"
+version = "0.3.3"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/58/f8/cd11ec90bd6a6bcf35bb80e4e29fdebe8bf2b05e869a93ca1e41d85518d0/ndeflib-0.3.3.tar.gz", hash = "sha256:1d56828558b9b16f2822a4051824346347b66adf5320ea86070748b6f2454a88", size = 143759 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/c9/80/bbc9a4818cd74807f914d225611cd724d8c0e56237b952a9a4aa6d583f5c/ndeflib-0.3.3-py2.py3-none-any.whl", hash = "sha256:c634b1af2ab454754f0fdbe1debd38247ed7bdaf94587359b857726f3ee7decb", size = 56331 },
+]
+
+[[package]]
+name = "nfcpy"
+version = "1.0.4"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "libusb1" },
+    { name = "ndeflib" },
+    { name = "pydes" },
+    { name = "pyserial" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/38/a2/cce3ab796e84bea5098c4231ff56e523cb182c58a21280ccff0d75e693e6/nfcpy-1.0.4.tar.gz", hash = "sha256:e5bd08d0119e1d9e95d05215f838b07b44d03b651adddc523cc1a38892b8af6b", size = 451788 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/96/2e/4fd1d12de425b26e0c5e74bb109cc7f55cdaf275b8f1a72e737ef584cf8a/nfcpy-1.0.4-py3-none-any.whl", hash = "sha256:c1f3ecdd9755f9af46e89a945ed490354d089d5b19422e307159e256ff8c1b3d", size = 186108 },
+]
+
+[[package]]
+name = "pydes"
+version = "2.0.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/92/5e/0075a35ea5d307a182b0963900298b209ea2f363ccdd5a27e8cb04c58410/pyDes-2.0.1.tar.gz", hash = "sha256:e2ab8e21d2b83e90d90dbfdcb6fb8ac0000b813238b7ecaede04f8435c389012", size = 9878 }
+
+[[package]]
+name = "pyserial"
+version = "3.5"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/1e/7d/ae3f0a63f41e4d2f6cb66a5b57197850f919f59e558159a4dd3a818f5082/pyserial-3.5.tar.gz", hash = "sha256:3c77e014170dfffbd816e6ffc205e9842efb10be9f58ec16d3e8675b4925cddb", size = 159125 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/07/bc/587a445451b253b285629263eb51c2d8e9bcea4fc97826266d186f96f558/pyserial-3.5-py2.py3-none-any.whl", hash = "sha256:c4451db6ba391ca6ca299fb3ec7bae67a5c55dde170964c7a14ceefec02f2cf0", size = 90585 },
+]
